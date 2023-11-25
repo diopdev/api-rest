@@ -1,5 +1,6 @@
 import express from "express";
 const app = express();
+app.use(express.json());
 
 // MOCK
 
@@ -13,13 +14,18 @@ const selecoes = [
 
 // Cria rota raiz ou padrão
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Api rest using node.js");
 });
 
 // Cria rota seleções onde listara o grugo G
 
 app.get("/selecoes", (req, res) => {
   res.send(selecoes);
+});
+
+app.post("/selecoes", (req, res) => {
+  selecoes.push(req.body);
+  res.status(201).send("Seleção cadastrada com sucesso");
 });
 
 export default app;
