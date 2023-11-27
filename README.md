@@ -84,19 +84,23 @@ Exemplo: const PORT = 3000;
 
 Os endereços das rotas são chamados de ENDPOINT, que é a parte final do endereço.
 
+```javascript
 app.get("/selecoes", (req, res) => {
-res.status(200).send(selecoes); // Referência a uma requisição bem-sucedida
+  res.status(200).send(selecoes); // Referência a uma requisição bem-sucedida
 });
+```
 
 ## Dica de Estudo: Mocar Dados para Testes de API
 
 Use um array para acessar dados no teste da rota. Mockar dados é criar uma estrutura de dados para testar APIs.
 
+```javascript
 const selecoes = [
-{ nome: "Seleção1", pais: "País1" },
-{ nome: "Seleção2", pais: "País2" },
-// ... adicione mais seleções conforme necessário
+  { nome: "Seleção1", pais: "País1" },
+  { nome: "Seleção2", pais: "País2" },
+  // ... adicione mais seleções conforme necessário
 ];
+```
 
 ## Como Criar uma Rota POST
 
@@ -114,30 +118,32 @@ app.post("/selecoes", (req, res) => {
 
 ## Função Auxiliar para Busca por ID
 
-````javascript
+```javascript
 // Retorna o elemento pelo ID
 function buscarSelecaoPorId(id) {
   // O retorno será um objeto, se o ID da seleção for igual ao que estamos buscando
-  return selecoes.filter(selecao => selecao.id == id);
+  return selecoes.filter((selecao) => selecao.id == id);
 }
-
+```
 
 ## Rota GET por ID
 
 Criação de uma rota GET por ID para buscar dados. O ID é um parâmetro dentro da requisição.
 
-```app.get("/selecoes/:id", (req, res) => {
-res.json(buscarSelecaoPorId(req.params.id));
+```javascript
+app.get("/selecoes/:id", (req, res) => {
+  res.json(buscarSelecaoPorId(req.params.id));
 });
-````
+```
 
 Com esta rota, é possível visualizar no console o número do ID.
 
 ## Função Auxiliar para Localizar Posição do Elemento
 
-```// Pegar a posição ou index do elemento no array por ID
+```javascript
+// Pegar a posição ou index do elemento no array por ID
 function buscarIndexSelecao(id) {
-  return selecoes.findIndex(selecao => selecao.id == id);
+  return selecoes.findIndex((selecao) => selecao.id == id);
 }
 ```
 
@@ -145,8 +151,10 @@ function buscarIndexSelecao(id) {
 
 Criação de uma rota DELETE por ID para excluir dados. O ID é um parâmetro dentro da requisição.
 
+```javascript
 app.delete("/selecoes/:id", (req, res) => {
-let index = buscarIndexSelecao(req.params.id);
-selecoes.splice(index, 1);
-res.send("Seleção excluída com sucesso!");
+  let index = buscarIndexSelecao(req.params.id);
+  selecoes.splice(index, 1);
+  res.send("Seleção excluída com sucesso!");
 });
+```
