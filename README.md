@@ -158,3 +158,25 @@ app.delete("/selecoes/:id", (req, res) => {
   res.send("Seleção excluída com sucesso!");
 });
 ```
+
+...
+
+## Rota de Atualização (PUT)
+
+A rota de atualização é semelhante à rota de exclusão, pois podemos atualizar os dados usando a pesquisa do ID feita pela função.
+
+Usamos o verbo ou método PUT, que é o método HTTP utilizado para a atualização dos dados.
+
+```javascript
+app.put("/selecoes/:id", (req, res) => {
+  let index = buscarIndexSelecao(req.params.id);
+
+  // Selecionamos os parâmetros que queremos atualizar.
+  selecoes[index].selecao = req.body.selecao;
+  selecoes[index].grupo = req.body.grupo;
+
+  res.json(selecoes);
+});
+```
+
+Nesta rota, os dados são atualizados com base no ID fornecido na requisição. Os parâmetros que desejamos atualizar são selecionados a partir do corpo da requisição (req.body). A resposta é um JSON contendo o array atualizado.

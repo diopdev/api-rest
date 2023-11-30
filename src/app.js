@@ -49,4 +49,16 @@ app.delete("/selecoes/:id", (req, res) => {
   res.send(`seleção com id ${req.params.id} excluída com sucesso!`);
 });
 
+// Criar rota update onde é possivel atualizar os dados atraves do id.
+
+app.put("/selecoes/:id", (req, res) => {
+  let index = buscarIndexSelecao(req.params.id);
+  // selecionamso os parametros que queremos atualizar.
+
+  selecoes[index].selecao = req.body.selecao;
+  selecoes[index].grupo = req.body.grupo;
+
+  res.json(selecoes);
+});
+
 export default app;
