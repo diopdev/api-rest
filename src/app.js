@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
   res.send("Api rest using node.js");
 });
 
-// Cria rota seleções onde listara o grugo G
+// Cria rota seleções onde listar o grugo G
 
 app.get("/selecoes", (req, res) => {
   res.send(selecoes);
