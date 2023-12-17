@@ -9,6 +9,7 @@ const selecoes = [
   { id: 3, selecao: "Peru", grupo: "G" },
   { id: 4, selecao: "França", grupo: "G" },
   { id: 5, selecao: "Uruguai", grupo: "G" },
+  { id: 6, selecao: "Suiça", grupo: "G" },
 ];
 
 // Função que retorna elemento pelo Id
